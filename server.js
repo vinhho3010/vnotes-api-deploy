@@ -12,11 +12,12 @@ connectDB();
 //define API route in server
 app.use("/api/", Routes);
 
-
 //define error handle when don't have compatible route
 app.use((req, res, next) => {
   return next(new ApiError(404, "Resource not found"));
 });
+
+
 
 // define error-handling middleware last, after other app.use() and routes calls
 app.use((err, req, res, next) => {
